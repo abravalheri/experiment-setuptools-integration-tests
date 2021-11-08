@@ -19,6 +19,7 @@ jobs:
 
 
   integration-test:
+    needs: test
     # To avoid long times and high resource usage, we assume that:
     # 1. The setuptools APIs used by packages don't vary too much with OS or
     #    Python implementation
