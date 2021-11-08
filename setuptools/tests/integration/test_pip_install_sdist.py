@@ -32,12 +32,11 @@ pytestmark = pytest.mark.integration
 
 
 LATEST, = list(Enum("v", "LATEST"))
-"""Default version to be checked.
-
-There are positive and negative aspects of checking the latest version of the
-packages. The main positive aspect is that the latest version might have
-already removed the use of APIs deprecated in previous releases of setuptools.
-"""
+"""Default version to be checked"""
+# There are positive and negative aspects of checking the latest version of the
+# packages.
+# The main positive aspect is that the latest version might have already
+# removed the use of APIs deprecated in previous releases of setuptools.
 
 
 # Packages to be tested:
@@ -77,7 +76,7 @@ SDIST_OPTIONS = (
     "--ignore-installed",
     "--no-build-isolation",
     # We don't need "--no-binary :all:" since we specify the path to the sdist.
-    # It helps with performance, since the dependencies can taken from wheels.
+    # It also helps with performance, since dependencies can come from wheels.
 )
 # The downside of `--no-build-isolation` is that pip will not download build
 # dependencies. The test script will have to also handle that.

@@ -2,13 +2,13 @@ Experiment
 ==========
 
 This repository corresponds to the code used in an experiment to verify
-proposed integration tests for setuptools_, by running Github Actions.
+`proposed integration tests`_ for setuptools_, by running Github Actions.
 It tries to replicate the same proposed test (and conditions) that would run in
 setuptools CI.
 
 Specifically:
 
-- The following files where copied from setuptools::
+- The following files where copied from setuptools and `pypa/setuptools#2863`_::
 
     .
     ├── conftest.py
@@ -39,4 +39,12 @@ Specifically:
         └── workflows
             └── main.yml
 
+
+More information can be found in:
+
+- https://github.com/pypa/setuptools/pull/2863
+- https://github.com/pypa/setuptools/pull/2862
+
 .. _setuptools: https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
+.. _pypa/setuptools#2863: https://github.com/pypa/setuptools/pull/2863
+.. _proposed integration tests: https://github.com/pypa/setuptools/pull/2862
