@@ -10,7 +10,7 @@ skip-string-normalization = true
 #addopts = "--mypy"
 
 [pytest.enabler.flake8]
-# addopts = "--flake8"
+addopts = "--flake8"
 
 [pytest.enabler.cov]
 addopts = "--cov"
