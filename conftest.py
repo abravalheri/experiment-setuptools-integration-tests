@@ -18,7 +18,7 @@ def pytest_addoption(parser):
 
 
 def pytest_configure(config):
-    config.addinivalue_line("markers", "integration: indicate integration tests")
+    config.addinivalue_line("markers", "integration: integration tests")
 
     if config.option.integration:
         # Assume unit tests and flake already run
