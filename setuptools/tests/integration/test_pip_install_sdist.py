@@ -22,7 +22,7 @@ from urllib.request import urlopen
 from zipfile import ZipFile
 
 import pytest
-import setuptools
+# >> import setuptools
 from packaging.requirements import Requirement
 
 
