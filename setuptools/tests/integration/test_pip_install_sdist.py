@@ -143,7 +143,6 @@ def test_install_sdist(package, version, tmp_path, venv_python):
 def run_command(cmd, env=None):
     r = subprocess.run(
         cmd,
-        check=True,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         universal_newlines=True,
