@@ -126,7 +126,9 @@ def test_install_sdist(package, version, tmp_path, venv_python):
     # Use a virtualenv to simulate PEP 517 isolation
     # but install setuptools to force the version under development
     # correct_setuptools = os.getenv("PROJECT_ROOT") or setuptools.__path__[0]
-    correct_setuptools = "git+https://github.com/pypa/setuptools@main"
+    correct_setuptools = (
+        "git+https://github.com/pypa/setuptools@main#egg=setuptools"
+    )
     run_command([*venv_pip, "install", "-Ie", correct_setuptools])
     run_command([*venv_pip, "install", *SDIST_OPTIONS, sdist])
 
