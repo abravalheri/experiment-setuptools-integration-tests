@@ -133,7 +133,7 @@ def test_install_sdist(package, version, tmp_path, venv_python):
     run_command([*venv_pip, "install", *SDIST_OPTIONS, sdist])
 
     # Execute a simple script to make sure the package was installed correctly
-    script = f"import {package}; print({package}.__version__)"
+    script = f"import {package}; print(getattr({package}, '__version__', 0))"
     run_command([venv_python, "-c", script])
 
 
