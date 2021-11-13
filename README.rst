@@ -18,7 +18,8 @@ Specifically:
             ├── contexts.py
             ├── fixtures.py
             └── integration
-                └── test_pip_install_sdist.py
+                ├── helpers.py
+                └── test_pip_install_sdist.py  * minor change
 
 - The following file were created empty::
 
@@ -30,7 +31,7 @@ Specifically:
             └── integration
                 └── __init__.py
 
-- The following files were copied and then adapted to remove unused parts::
+- The following files were copied and then adapted::
 
     .
     ├── tox.ini
@@ -38,6 +39,21 @@ Specifically:
     └── .github
         └── workflows
             └── main.yml
+
+
+In ``test_pip_install_sdist.py``, the following change is introduced:
+
+
+.. code-block:: diff
+
+    - correct_setuptools = os.getenv("PROJECT_ROOT") or SETUPTOOLS_ROOT
+    + # correct_setuptools = os.getenv("PROJECT_ROOT") or SETUPTOOLS_ROOT
+    + correct_setuptools = (
+    +    "git+https://github.com/pypa/setuptools@main#egg=setuptools"
+    + )
+
+This is required since this repository does not contain setuptools codebase.
+Instead it is installed directly from GitHub.
 
 
 More information can be found in:
