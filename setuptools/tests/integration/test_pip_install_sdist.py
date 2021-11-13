@@ -22,12 +22,13 @@ from urllib.request import urlopen
 from zipfile import ZipFile
 
 import pytest
-# >> import setuptools
+import setuptools
 from packaging.requirements import Requirement
 
 
 pytestmark = pytest.mark.integration
 
+SETUPTOOLS_ROOT = os.path.dirname(next(iter(setuptools.__path__)))
 
 LATEST, = list(Enum("v", "LATEST"))
 """Default version to be checked"""
@@ -125,7 +126,7 @@ def test_install_sdist(package, version, tmp_path, venv_python):
 
     # Use a virtualenv to simulate PEP 517 isolation
     # but install setuptools to force the version under development
-    # correct_setuptools = os.getenv("PROJECT_ROOT") or setuptools.__path__[0]
+    # correct_setuptools = os.getenv("PROJECT_ROOT") or SETUPTOOLS_ROOT
     correct_setuptools = (
         "git+https://github.com/pypa/setuptools@main#egg=setuptools"
     )
