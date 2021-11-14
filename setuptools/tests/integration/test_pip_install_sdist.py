@@ -12,19 +12,19 @@ their build process may require changes in the tests).
 """
 import json
 import os
-import sys
 import shutil
+import sys
 from enum import Enum
 from glob import glob
 from hashlib import md5
 from urllib.request import urlopen
 
 import pytest
-import setuptools
 from packaging.requirements import Requirement
 
-from .helpers import Archive, run
+import setuptools
 
+from .helpers import Archive, run
 
 pytestmark = pytest.mark.integration
 
@@ -204,6 +204,7 @@ def build_deps(package, sdist_file):
     deps with `--no-build-isolation`.
     """
     import tomli as toml
+
     # delay importing, since pytest discovery phase may hit this file from a
     # testenv without tomli
 
