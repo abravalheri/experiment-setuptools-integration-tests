@@ -13,6 +13,7 @@ their build process may require changes in the tests).
 import json
 import os
 import sys
+import shutil
 from enum import Enum
 from glob import glob
 from hashlib import md5
@@ -88,7 +89,8 @@ SDIST_OPTIONS = (
 @pytest.fixture
 def venv_python(tmp_path):
     run([*VIRTUALENV, str(tmp_path / ".venv")])
-    return str(next(tmp_path.glob(".venv/*/python")))
+    possible_path = (str(p.parent) for p in tmp_path.glob(".venv/*/python*"))
+    return shutil.which("python", path=os.pathsep.join(possible_path))
 
 
 @pytest.fixture(autouse=True)
